@@ -65,7 +65,7 @@ all: Robot.elf secondary-outputs
 Robot.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C++ Linker'
-	avr-g++ -Wl,-Map,Robot.map,--cref -mrelax -Wl,--gc-sections -mmcu=atmega328p -o "Robot.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-g++ -Wl,-Map,Robot.map,--cref -mrelax -Wl,--gc-sections -mmcu=atmega16 -o "Robot.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -89,7 +89,7 @@ Robot.eep: Robot.elf
 
 sizedummy: Robot.elf
 	@echo 'Invoking: Print Size'
-	-avr-size --format=avr --mcu=atmega328p Robot.elf
+	-avr-size --format=avr --mcu=atmega16 Robot.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
