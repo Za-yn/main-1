@@ -25,9 +25,6 @@ QueueHandle_t xLEDCommandQueue = xQueueCreate(1, sizeof(char));
 QueueHandle_t xMusicCommandQueue = xQueueCreate(1, sizeof(char));
 
 void xTaskLed(void *p) {
-	TickType_t xLastWakeTime;
-	const TickType_t xFrequency = 200;
-	xLastWakeTime = xTaskGetTickCount();
 
 	char status = STOPPED;
 
@@ -45,9 +42,6 @@ void xTaskLed(void *p) {
 
 
 void xTaskPlayMusic(void *p) {
-	TickType_t xLastWakeTime;
-	const TickType_t xFrequency = 200;
-	xLastWakeTime = xTaskGetTickCount();
 
 	for (;;) {
 		Play_BabyShark();
